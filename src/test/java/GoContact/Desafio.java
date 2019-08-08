@@ -465,7 +465,8 @@ public class Desafio {
 		
 		System.out.println("S.H.I.E.L.D aparece na descrição");
 		driver.quit();
-		
+		driver.quit(); 
+		System.out.println("S.H.I.E.L.D aparece na descrição");
 	}
 	@Test
 	public void tc5_3avengers() throws InterruptedException{
