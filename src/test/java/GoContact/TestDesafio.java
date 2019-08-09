@@ -25,10 +25,17 @@ public class TestDesafio {
 	 * System.setProperty("webdriver.chrome.driver",
 	 * "./src/test/resources/chromedriver2/chromedriver.exe"); driver = new
 	 * ChromeDriver (); }
+<<<<<<< HEAD:src/test/java/GoContact/TestDesafio.java
 	 * System.out.println("");
 	 */
 	
 	@Test
+=======
+	 */
+	
+	@Test
+
+>>>>>>> origin/master:src/test/java/GoContact/Desafio.java
 	public void tc1_AlreadyUser() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver2/chromedriver.exe");
 		driver = new ChromeDriver();
@@ -45,7 +52,11 @@ public class TestDesafio {
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
 
 		// 1 - Validar cenário de Criar conta nova: Criar conta nova com user já
+<<<<<<< HEAD:src/test/java/GoContact/TestDesafio.java
 		// existente => validar que o site não permite 
+=======
+		// existente => validar que o site não permite
+>>>>>>> origin/master:src/test/java/GoContact/Desafio.java
 		/*
 		 * Dados de teste: email: amevaleriotest@gmail.com pass: Amazon.1
 		 */
@@ -443,7 +454,11 @@ public class TestDesafio {
 		// Aceder ao login
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
 
+<<<<<<< HEAD:src/test/java/GoContact/TestDesafio.java
 		// Fazer login com o user e criado e com password correta => deve ter sucessos
+=======
+		// Fazer login com o user e criado e com password correta => deve ter sucesso
+>>>>>>> origin/master:src/test/java/GoContact/Desafio.java
 		driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
 		driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
 		driver.findElement(By.name("rememberMe")).click();
