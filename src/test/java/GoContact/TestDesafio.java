@@ -20,12 +20,13 @@ public class TestDesafio {
 	WebDriver driver;
 
 	/*
-	 * @Before public void setUp() {
+	 * @Before 
+	 * public void setUp() {
 	 * 
-	 * System.setProperty("webdriver.chrome.driver",
-	 * "./src/test/resources/chromedriver2/chromedriver.exe"); driver = new
+	 * System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver2/chromedriver.exe"); 
+	 * driver = new
 	 * ChromeDriver (); }
-	 * System.out.println("");
+	 * System.out.println("Abre o chrome");
 	 */
 	
 	@Test
@@ -45,10 +46,11 @@ public class TestDesafio {
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
 
 		// 1 - Validar cenário de Criar conta nova: Criar conta nova com user já
-		// existente => validar que o site não permite 
+		// existente => validar que o site não permite
 		/*
 		 * Dados de teste: email: amevaleriotest@gmail.com pass: Amazon.1
 		 */
+		
 		driver.findElement(By.cssSelector("#createAccountSubmit")).click();
 		driver.findElement(By.cssSelector("#ap_customer_name")).sendKeys("Teste01");
 		driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
@@ -56,8 +58,7 @@ public class TestDesafio {
 		driver.findElement(By.cssSelector("#ap_password_check")).sendKeys("Amazon.12");
 		driver.findElement(By.cssSelector("#continue")).click();
 
-		WebElement element = driver.findElement(By.cssSelector(
-				"#authportal-main-section > div:nth-child(2) > div > div.a-section.a-spacing-large > div > div > h4"));
+		WebElement element = driver.findElement(By.cssSelector("#authportal-main-section > div:nth-child(2) > div > div.a-section.a-spacing-large > div > div > h4"));
 		String alreadyuser = element.getText();
 		System.out.println("Error -> " + alreadyuser);
 		assertEquals("E-mail address already in use", alreadyuser);
@@ -80,13 +81,10 @@ public class TestDesafio {
 		// Aceder ao login
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
 
-		// 2 - tentar fazer login com o user e criado mas com password errada => deve
-		// falhar
+		// 2 - tentar fazer login com o user e criado mas com password errada => deve falhar
 		driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
 		driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.19");
-		driver.findElement(By.cssSelector(
-				"#authportal-main-section > div:nth-child(2) > div > div > form > div > div > div > div.a-section.a-spacing-extra-large > div:nth-child(5) > div > label > div > label > input[type=checkbox]"))
-				.click();
+		driver.findElement(By.cssSelector("#authportal-main-section > div:nth-child(2) > div > div > form > div > div > div > div.a-section.a-spacing-extra-large > div:nth-child(5) > div > label > div > label > input[type=checkbox]")).click();
 		driver.findElement(By.cssSelector("#signInSubmit")).click();
 		WebElement element = driver.findElement(By.cssSelector("#auth-error-message-box > div > div > ul > li"));
 		String passnok = element.getText();
@@ -112,10 +110,7 @@ public class TestDesafio {
 		// Fazer login com o user e criado e com password correta => deve ter sucesso
 		driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
 		driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
-		// driver.findElement(By.cssSelector("#authportal-main-section >
-		// div:nth-child(2) > div > div > form > div > div > div >
-		// div.a-section.a-spacing-extra-large > div:nth-child(5) > div > label > div >
-		// label > input[type=checkbox]")).click();
+		
 		driver.findElement(By.cssSelector("#signInSubmit")).click();
 
 		WebElement element = driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1"));
@@ -208,8 +203,7 @@ public class TestDesafio {
 		driver.findElement(By.cssSelector("#nav-search > form > div.nav-right > div > input")).click();
 
 		// (como posso pesquisar pelo nome do autor? e verificar se tem "Bergeron")
-		driver.findElement(By.linkText("Chasing Excellence: A Story About Building the World's Fittest Athletes"))
-				.click();
+		driver.findElement(By.linkText("Chasing Excellence: A Story About Building the World's Fittest Athletes")).click();
 
 		WebElement element = driver.findElement(By.cssSelector(".a-link-normal.contributorNameID"));
 		String author = element.getText();
@@ -226,8 +220,7 @@ public class TestDesafio {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.navigate().to("https://www.amazon.co.uk");
-		System.out.println("TC04.3"
-				+ " - Procurar nos comentários: identificar se temos comentário de user: Cerith Leighton Watkins");
+		System.out.println("TC04.3" + " - Procurar nos comentários: identificar se temos comentário de user: Cerith Leighton Watkins");
 		// Aceder ao login
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
 
@@ -242,8 +235,7 @@ public class TestDesafio {
 		driver.findElement(By.cssSelector("#nav-search > form > div.nav-right > div > input")).click();
 
 		// (Ir para os comentários)
-		driver.findElement(By.linkText("Chasing Excellence: A Story About Building the World's Fittest Athletes"))
-				.click();
+		driver.findElement(By.linkText("Chasing Excellence: A Story About Building the World's Fittest Athletes")).click();
 		driver.findElement(By.xpath("//*[@id=\"reviews-medley-cmps-collapse\"]/div[2]/a")).click();
 
 		WebElement element = driver.findElement(By.xpath("//*[@id=\"cm_cr-review_list\"]"));
@@ -251,7 +243,7 @@ public class TestDesafio {
 
 		assertTrue(cerith.contains("Cerith Leighton Watkins"));
 
-		// System.out.println("Cerith Leighton Watkins comentou este livo.");
+		System.out.println("Cerith Leighton Watkins comentou este livo.");
 		driver.quit();
 
 	}
@@ -277,8 +269,7 @@ public class TestDesafio {
 		driver.findElement(By.cssSelector("#nav-search > form > div.nav-right > div > input")).click();
 
 		// (Escrever comentário)
-		driver.findElement(By.linkText("Chasing Excellence: A Story About Building the World's Fittest Athletes"))
-				.click();
+		driver.findElement(By.linkText("Chasing Excellence: A Story About Building the World's Fittest Athletes")).click();
 		driver.findElement(By.xpath("//*[@id=\"a-autoid-18-announce\"]")).click();
 
 		WebElement element = driver.findElement(By.xpath("//*[@id=\"react-app\"]/div/div/div/div"));
@@ -461,9 +452,8 @@ public class TestDesafio {
 		assertTrue(shield.contains("S.H.I.E.L.D"));
 
 		System.out.println("S.H.I.E.L.D aparece na descrição");
+		
 		driver.quit();
-		driver.quit();
-		System.out.println("S.H.I.E.L.D aparece na descrição");
 	}
 
 	@Test
@@ -491,9 +481,7 @@ public class TestDesafio {
 		driver.findElement(By.cssSelector("#twotabsearchtextbox")).sendKeys("avengers");
 		driver.findElement(By.cssSelector("#nav-search > form > div.nav-right")).click();
 		driver.findElement(By.linkText("Avengers Assemble")).click();
-		driver.findElement(
-				By.cssSelector("#dv-action-box > div > div > div > div._1y_Ulh.Ri9l84._2WW1HP > div > span > a"))
-				.click();
+		driver.findElement(By.cssSelector("#dv-action-box > div > div > div > div._1y_Ulh.Ri9l84._2WW1HP > div > span > a")).click();
 		// driver.findElement(By.xpath("//*[@id=\"dv-action-box\"]/div/div/div/div[2]/div/span/a")).click();
 		driver.findElement(By.linkText("Watch")).click();
 
@@ -542,7 +530,6 @@ public class TestDesafio {
 		driver.navigate().to("https://www.amazon.co.uk");
 
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
-
 		driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
 		driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
 		driver.findElement(By.cssSelector("#signInSubmit")).click();
