@@ -454,8 +454,7 @@ public class TestDesafio {
 		driver.findElement(By.cssSelector("#nav-search > form > div.nav-right")).click();
 		driver.findElement(By.linkText("Avengers Assemble")).click();
 
-		WebElement element = driver
-				.findElement(By.className("//*[@id=\"a-page\"]/div[3]/div[2]/div/div/div[2]/div[3]/div/div[2]"));
+		WebElement element = driver.findElement(By.xpath("//*[@id=\"a-page\"]/div[3]/div[2]/div/div/div[2]/div[3]/div/div[2]"));
 		String shield = element.getText();
 
 		assertNotNull(shield);
