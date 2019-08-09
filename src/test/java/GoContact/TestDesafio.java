@@ -25,6 +25,7 @@ public class TestDesafio {
 	 * System.setProperty("webdriver.chrome.driver",
 	 * "./src/test/resources/chromedriver2/chromedriver.exe"); driver = new
 	 * ChromeDriver (); }
+	 * System.out.println("");
 	 */
 	
 	@Test
