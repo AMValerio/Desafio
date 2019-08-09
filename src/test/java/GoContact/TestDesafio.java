@@ -32,7 +32,7 @@ public class TestDesafio {
 	@Test
 	public void tc1_AlreadyUser() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver2/chromedriver.exe");
-		System.setProperty("webdriver.chrome.whitelistedIps", "");
+		//System.setProperty("webdriver.chrome.whitelistedIps", "");
 		driver = new ChromeDriver();
 
 		System.out.println("TC01"
