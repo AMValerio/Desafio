@@ -10,10 +10,12 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TestDesafio {
@@ -179,7 +181,7 @@ public class TestDesafio {
 
 		assertNotNull(bookresults);
 		assertTrue(bookresults.contains("hasing Excellence"));
-		driver.quit();
+		//driver.quit();
 	}
 
 	@Test
@@ -237,18 +239,53 @@ public class TestDesafio {
 
 		// (Ir para os comentários)
 		driver.findElement(By.linkText("Chasing Excellence: A Story About Building the World's Fittest Athletes")).click();
-		driver.findElement(By.xpath("//*[@id=\"reviews-medley-cmps-collapse\"]/div[2]/a")).click();
+		driver.findElement(By.xpath("//*[@id=\"dp-summary-see-all-reviews\"]/h2")).click();
+		
+		
+		boolean found = false;
+		boolean hasMorePages = true;
+		while (!found && hasMorePages) {
+			System.out.println("Dentro do ciclo");
+			WebElement element = findElement(By.xpath("//*[@id=\"cm_cr-review_list\"]"));
+			if (element != null) {
+				// encontrou
+				//System.out.println("element " + element);
+				String cerith = element.getText();
+				//System.out.println("ceritr " + cerith);
+				found = cerith.contains("Cerith Leighton Watkins");
+				
+				WebElement nextPage = findElement(By.cssSelector("#cm_cr-pagination_bar > ul > li.a-last > a"));
+				hasMorePages = nextPage != null;
+				System.out.println("fgh" +found + " - hasMorePages: "+hasMorePages);
+				if (!found && hasMorePages) {
+					nextPage.click();
+				} 
+			} else {
+				// nao encontrou
+				// WebElement elementButton = findElement(By.cssSelector("#cm_cr-pagination_bar > ul > li.a-disabled.a-last")); 
+				// hasMorePages = elementButton.getText().contains("Next");
+				// vamos parar aqui isto
+				hasMorePages = false;
+			}
+			
+			
+		}
+		
+		assertTrue("no more pages and element not found",  found);
 
-		WebElement element = driver.findElement(By.xpath("//*[@id=\"cm_cr-review_list\"]"));
-		String cerith = element.getText();
 
-		assertTrue(cerith.contains("Cerith Leighton Watkins"));
-
-		System.out.println("Cerith Leighton Watkins comentou este livo.");
+		//System.out.println("Cerith Leighton Watkins comentou este livo.");
 		driver.quit();
 
 	}
 
+	public WebElement findElement(By by) {
+		try {
+			return driver.findElement(by);
+		} catch (NoSuchElementException e) {
+			return null;
+		}
+	}
 	@Test
 	public void tc4_4InsertComments() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver2/chromedriver.exe");
