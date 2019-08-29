@@ -86,8 +86,9 @@ public class TestDesafio {
 
 		// 2 - tentar fazer login com o user e criado mas com password errada => deve falhar
 		driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+		driver.findElement(By.cssSelector("#continue > span")).click();
 		driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.19");
-		driver.findElement(By.cssSelector("#authportal-main-section > div:nth-child(2) > div > div > form > div > div > div > div.a-section.a-spacing-extra-large > div:nth-child(5) > div > label > div > label > input[type=checkbox]")).click();
+		//driver.findElement(By.cssSelector("#authportal-main-section > div:nth-child(2) > div > div > form > div > div > div > div.a-section.a-spacing-extra-large > div:nth-child(5) > div > label > div > label > input[type=checkbox]")).click();
 		driver.findElement(By.cssSelector("#signInSubmit")).click();
 		WebElement element = driver.findElement(By.cssSelector("#auth-error-message-box > div > div > ul > li"));
 		String passnok = element.getText();
@@ -181,7 +182,7 @@ public class TestDesafio {
 
 		assertNotNull(bookresults);
 		assertTrue(bookresults.contains("hasing Excellence"));
-		//driver.quit();
+		driver.quit();
 	}
 
 	@Test
@@ -308,7 +309,7 @@ public class TestDesafio {
 
 		// (Escrever comentário)
 		driver.findElement(By.linkText("Chasing Excellence: A Story About Building the World's Fittest Athletes")).click();
-		driver.findElement(By.xpath("//*[@id=\"a-autoid-18-announce\"]")).click();
+		driver.findElement(By.linkText("Write a customer review")).click();
 
 		WebElement element = driver.findElement(By.xpath("//*[@id=\"react-app\"]/div/div/div/div"));
 		String insert = element.getText();
@@ -339,15 +340,15 @@ public class TestDesafio {
 		// Pesquisar pelo livro: chasing Excellence
 		driver.findElement(By.cssSelector("#twotabsearchtextbox")).sendKeys("chasing Excellence + book");
 		driver.findElement(By.cssSelector("#nav-search > form > div.nav-right > div > input")).click();
-
+		
 		// (Ir para os comentários)
-		driver.findElement(By.linkText("Chasing Excellence: A Story About Building the World's Fittest Athletes"))
-				.click();
-		driver.findElement(By.xpath("//*[@id=\"dp-summary-see-all-reviews\"]/h2")).click();
+		driver.findElement(By.linkText("Chasing Excellence: A Story About Building the World's Fittest Athletes")).click();
+		
 		// Pesquisar Comentários com uma estreala
-		driver.findElement(By.cssSelector("#a-autoid-6")).click();
-		driver.findElement(By.cssSelector("#star-count-dropdown_5")).click();
-
+		driver.findElement(By.cssSelector("#histogramTable > tbody > tr:nth-child(5) > td:nth-child(1)")).click();
+		
+		//driver.findElement(By.cssSelector("#star-count-dropdown_5")).click();
+		System.out.println("Batatas 3");
 		WebElement element = driver.findElement(By.xpath("//*[@id=\"filter-info-section\"]"));
 		String onestar = element.getText();
 
