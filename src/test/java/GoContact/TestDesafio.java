@@ -17,6 +17,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
+
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TestDesafio {
 	WebDriver driver;
@@ -801,6 +802,54 @@ public class TestDesafio {
 
 		System.out.println("Adidas não está presente nas featured Brands");
 
+		driver.quit();
+
+	}
+	@Test
+	public void tc7_1_AmazonJobs() throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver2/chromedriver.exe");
+		driver = new ChromeDriver();
+		System.out.println("TC07.1" + " - Pesquisar por empregos em \"Portugal, setubal\" => verificar que tenho 1 ou mais");
+
+		// Entrar no site https://www.amazon.co.uk
+		driver.manage().window().maximize();
+		driver.navigate().to("https://www.amazon.jobs/en-gb");
+		driver.findElement(By.cssSelector("#search-button")).click(); 
+		driver.findElement(By.cssSelector("#location-typeahead")).sendKeys("Portugal, setubal"); 
+		driver.findElement(By.cssSelector("#search-container > div > form > button")).click(); 
+		
+		WebElement element7 = driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[3]/div/div/div[2]/content/div")); 
+		String	jobs = element7.getText();
+		
+		assertTrue(jobs.contains("Showing 1 -"));
+		System.out.println("Existe um ou mais empregos na sua pesquisa");
+		
+		driver.quit();
+
+	}
+	@Test
+	public void tc7_2_AmazonJobs() throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver2/chromedriver.exe");
+		driver = new ChromeDriver();
+		System.out.println("TC07.2" + " - Alterar o filtro para 5 mi => verificar que não tenho nenhum resultado");
+
+		// Entrar no site https://www.amazon.co.uk
+		driver.manage().window().maximize();
+		driver.navigate().to("https://www.amazon.jobs/en-gb");
+		driver.findElement(By.cssSelector("#search-button")).click(); 
+		driver.findElement(By.cssSelector("#location-typeahead")).sendKeys("Portugal, setubal"); 
+		driver.findElement(By.cssSelector("#search-container > div > form > button")).click(); 
+		//driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[3]/div/div/div[2]/content/div/div/div[1]/div/div[6]/div/fieldset/div[2]/button[1]")).click();
+		driver.findElement(By.cssSelector("#main-content > div.search-page > div > div > div.container > content > div > div > div.d-none.d-md-block.col-sm-4.search-page-filter > div > div:nth-child(6) > div > fieldset > div.buttons-group > button.col-xs-2.col-md-4.col-lg-2.btn.btn-in-group.selected")).click();
+
+		
+		
+		WebElement element8 = driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[3]/div/div/div[2]/content/div")); 
+		String	jobs = element8.getText();
+		
+		assertTrue(jobs.contains("Sorry, there are no jobs"));
+		System.out.println("Não existe resultados para o filtro seleccionado");
+		
 		driver.quit();
 
 	}
