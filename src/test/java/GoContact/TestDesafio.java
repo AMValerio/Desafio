@@ -84,11 +84,29 @@ public class TestDesafio {
 		// Aceder ao login
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
 
-		// 2 - tentar fazer login com o user e criado mas com password errada => deve falhar
-		driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
-		driver.findElement(By.cssSelector("#continue > span")).click();
-		driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.19");
-		//driver.findElement(By.cssSelector("#authportal-main-section > div:nth-child(2) > div > div > form > div > div > div > div.a-section.a-spacing-extra-large > div:nth-child(5) > div > label > div > label > input[type=checkbox]")).click();
+		// 2 - tentar fazer login com o user e criado mas com password errada => deve
+		// falhar
+		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
+		String slogin = login.getText();
+
+		if (slogin.contains("Password")) {
+
+			// Fazer login com o user e criado e com password correta => deve ter sucesso
+			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.19"); 
+			driver.findElement(By.name("rememberMe")).click();
+			driver.findElement(By.cssSelector("#signInSubmit")).click();
+		} else {
+			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+			driver.findElement(By.cssSelector("#continue")).click();
+			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.19");
+			driver.findElement(By.name("rememberMe")).click();
+			driver.findElement(By.cssSelector("#signInSubmit")).click();
+		}
+		// driver.findElement(By.cssSelector("#authportal-main-section >
+		// div:nth-child(2) > div > div > form > div > div > div >
+		// div.a-section.a-spacing-extra-large > div:nth-child(5) > div > label > div >
+		// label > input[type=checkbox]")).click();
 		driver.findElement(By.cssSelector("#signInSubmit")).click();
 		WebElement element = driver.findElement(By.cssSelector("#auth-error-message-box > div > div > ul > li"));
 		String passnok = element.getText();
@@ -116,14 +134,12 @@ public class TestDesafio {
 		String slogin = login.getText();
 
 		if (slogin.contains("Password")) {
-
 			// Fazer login com o user e criado e com password correta => deve ter sucesso
 			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
 			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
 			driver.findElement(By.name("rememberMe")).click();
 			driver.findElement(By.cssSelector("#signInSubmit")).click();
 		} else {
-			System.out.println("TESTE OK");
 			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
 			driver.findElement(By.cssSelector("#continue")).click();
 			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
@@ -158,14 +174,12 @@ public class TestDesafio {
 
 		if (slogin.contains("Password")) 
 		{
-
 			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
 			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
 			driver.findElement(By.name("rememberMe")).click();
 			driver.findElement(By.cssSelector("#signInSubmit")).click();
 		} else 
 		{
-			
 			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
 			driver.findElement(By.cssSelector("#continue")).click();
 			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
@@ -532,7 +546,6 @@ public class TestDesafio {
 		}
 		else
 		{
-			System.out.println("TESTE OK");
 		driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
 		driver.findElement(By.cssSelector("#continue")).click();
 		driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
@@ -589,12 +602,12 @@ public class TestDesafio {
 		WebElement element = driver
 				.findElement(By.xpath("//*[@id=\"search\"]/div[1]/div[2]/div/span[3]/div[1]/div[2]"));
 		String avengers = element.getText();
-		System.out.println("O filme aparece ");
+		System.out.println("O filme aparece? ");
 
 		assertNotNull(avengers);
 		assertTrue(avengers.contains("Avengers Assemble"));
 
-		System.out.println("O filme aparece na pesquisa");
+		System.out.println("Sim, o filme aparece na pesquisa");
 		driver.quit();
 
 	}
