@@ -112,10 +112,24 @@ public class TestDesafio {
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
 
 		// Fazer login com o user e criado e com password correta => deve ter sucesso
-		driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
-		driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
-		
-		driver.findElement(By.cssSelector("#signInSubmit")).click();
+		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
+		String slogin = login.getText();
+
+		if (slogin.contains("Password")) {
+
+			// Fazer login com o user e criado e com password correta => deve ter sucesso
+			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
+			driver.findElement(By.name("rememberMe")).click();
+			driver.findElement(By.cssSelector("#signInSubmit")).click();
+		} else {
+			System.out.println("TESTE OK");
+			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+			driver.findElement(By.cssSelector("#continue")).click();
+			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
+			driver.findElement(By.name("rememberMe")).click();
+			driver.findElement(By.cssSelector("#signInSubmit")).click();
+		}
 
 		WebElement element = driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1"));
 		String loginok = element.getText();
@@ -139,10 +153,27 @@ public class TestDesafio {
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
 
 		// Fazer login com o user e criado e com password correta => deve ter sucesso
-		driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
-		driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
-		driver.findElement(By.name("rememberMe")).click();
-		driver.findElement(By.cssSelector("#signInSubmit")).click();
+		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
+		String slogin = login.getText();
+
+		if (slogin.contains("Password")) 
+		{
+
+			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
+			driver.findElement(By.name("rememberMe")).click();
+			driver.findElement(By.cssSelector("#signInSubmit")).click();
+		} else 
+		{
+			
+			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+			driver.findElement(By.cssSelector("#continue")).click();
+			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
+			driver.findElement(By.name("rememberMe")).click();
+			driver.findElement(By.cssSelector("#signInSubmit")).click();
+		}
+		
+		
 		driver.findElement(By.cssSelector("#twotabsearchtextbox")).sendKeys("chasing Excellence + book");
 		driver.findElement(By.cssSelector("#nav-search > form > div.nav-right > div > input")).click();
 
@@ -167,10 +198,23 @@ public class TestDesafio {
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
 
 		// Fazer login com o user e criado e com password correta => deve ter sucesso
-		driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
-		driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
-		driver.findElement(By.name("rememberMe")).click();
-		driver.findElement(By.cssSelector("#signInSubmit")).click();
+		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
+		String slogin = login.getText();
+
+		if (slogin.contains("Password")) {
+
+			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
+			driver.findElement(By.name("rememberMe")).click();
+			driver.findElement(By.cssSelector("#signInSubmit")).click();
+		} else {
+
+			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+			driver.findElement(By.cssSelector("#continue")).click();
+			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
+			driver.findElement(By.name("rememberMe")).click();
+			driver.findElement(By.cssSelector("#signInSubmit")).click();
+		}
 
 		// Pesquisar pelo livro: chasing Excellence
 		driver.findElement(By.cssSelector("#twotabsearchtextbox")).sendKeys("chasing Excellence + book");
@@ -197,17 +241,31 @@ public class TestDesafio {
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
 
 		// Fazer login com o user e criado e com password correta => deve ter sucesso
-		driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
-		driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
-		driver.findElement(By.name("rememberMe")).click();
-		driver.findElement(By.cssSelector("#signInSubmit")).click();
+		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
+		String slogin = login.getText();
+
+		if (slogin.contains("Password")) {
+
+			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
+			driver.findElement(By.name("rememberMe")).click();
+			driver.findElement(By.cssSelector("#signInSubmit")).click();
+		} else {
+
+			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+			driver.findElement(By.cssSelector("#continue")).click();
+			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
+			driver.findElement(By.name("rememberMe")).click();
+			driver.findElement(By.cssSelector("#signInSubmit")).click();
+		}
 
 		// Pesquisar pelo livro: chasing Excellence
 		driver.findElement(By.cssSelector("#twotabsearchtextbox")).sendKeys("chasing Excellence + book");
 		driver.findElement(By.cssSelector("#nav-search > form > div.nav-right > div > input")).click();
 
 		// (como posso pesquisar pelo nome do autor? e verificar se tem "Bergeron")
-		driver.findElement(By.linkText("Chasing Excellence: A Story About Building the World's Fittest Athletes")).click();
+		driver.findElement(By.linkText("Chasing Excellence: A Story About Building the World's Fittest Athletes"))
+				.click();
 
 		WebElement element = driver.findElement(By.cssSelector(".a-link-normal.contributorNameID"));
 		String author = element.getText();
@@ -224,25 +282,39 @@ public class TestDesafio {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.navigate().to("https://www.amazon.co.uk");
-		System.out.println("TC04.3" + " - Procurar nos comentários: identificar se temos comentário de user: Cerith Leighton Watkins");
+		System.out.println("TC04.3"
+				+ " - Procurar nos comentários: identificar se temos comentário de user: Cerith Leighton Watkins");
 		// Aceder ao login
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
 
 		// Fazer login com o user e criado e com password correta => deve ter sucesso
-		driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
-		driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
-		driver.findElement(By.name("rememberMe")).click();
-		driver.findElement(By.cssSelector("#signInSubmit")).click();
+		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
+		String slogin = login.getText();
+
+		if (slogin.contains("Password")) {
+
+			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
+			driver.findElement(By.name("rememberMe")).click();
+			driver.findElement(By.cssSelector("#signInSubmit")).click();
+		} else {
+
+			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+			driver.findElement(By.cssSelector("#continue")).click();
+			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
+			driver.findElement(By.name("rememberMe")).click();
+			driver.findElement(By.cssSelector("#signInSubmit")).click();
+		}
 
 		// Pesquisar pelo livro: chasing Excellence
 		driver.findElement(By.cssSelector("#twotabsearchtextbox")).sendKeys("chasing Excellence + book");
 		driver.findElement(By.cssSelector("#nav-search > form > div.nav-right > div > input")).click();
 
 		// (Ir para os comentários)
-		driver.findElement(By.linkText("Chasing Excellence: A Story About Building the World's Fittest Athletes")).click();
+		driver.findElement(By.linkText("Chasing Excellence: A Story About Building the World's Fittest Athletes"))
+				.click();
 		driver.findElement(By.xpath("//*[@id=\"dp-summary-see-all-reviews\"]/h2")).click();
-		
-		
+
 		boolean found = false;
 		boolean hasMorePages = true;
 		while (!found && hasMorePages) {
@@ -250,32 +322,31 @@ public class TestDesafio {
 			WebElement element = findElement(By.xpath("//*[@id=\"cm_cr-review_list\"]"));
 			if (element != null) {
 				// encontrou
-				//System.out.println("element " + element);
+				// System.out.println("element " + element);
 				String cerith = element.getText();
-				//System.out.println("ceritr " + cerith);
+				// System.out.println("ceritr " + cerith);
 				found = cerith.contains("Cerith Leighton Watkins");
-				
+
 				WebElement nextPage = findElement(By.cssSelector("#cm_cr-pagination_bar > ul > li.a-last > a"));
 				hasMorePages = nextPage != null;
-				System.out.println("fgh" +found + " - hasMorePages: "+hasMorePages);
+				System.out.println("fgh" + found + " - hasMorePages: " + hasMorePages);
 				if (!found && hasMorePages) {
 					nextPage.click();
-				} 
+				}
 			} else {
 				// nao encontrou
-				// WebElement elementButton = findElement(By.cssSelector("#cm_cr-pagination_bar > ul > li.a-disabled.a-last")); 
+				// WebElement elementButton = findElement(By.cssSelector("#cm_cr-pagination_bar
+				// > ul > li.a-disabled.a-last"));
 				// hasMorePages = elementButton.getText().contains("Next");
 				// vamos parar aqui isto
 				hasMorePages = false;
 			}
-			
-			
+
 		}
-		
-		assertTrue("no more pages and element not found",  found);
 
+		assertTrue("no more pages and element not found", found);
 
-		//System.out.println("Cerith Leighton Watkins comentou este livo.");
+		// System.out.println("Cerith Leighton Watkins comentou este livo.");
 		driver.quit();
 
 	}
@@ -287,6 +358,7 @@ public class TestDesafio {
 			return null;
 		}
 	}
+
 	@Test
 	public void tc4_4InsertComments() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver2/chromedriver.exe");
@@ -298,17 +370,30 @@ public class TestDesafio {
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
 
 		// Fazer login com o user e criado e com password correta => deve ter sucesso
-		driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
-		driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
-		driver.findElement(By.name("rememberMe")).click();
-		driver.findElement(By.cssSelector("#signInSubmit")).click();
+		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
+		String slogin = login.getText();
 
+		if (slogin.contains("Password")) {
+
+			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
+			driver.findElement(By.name("rememberMe")).click();
+			driver.findElement(By.cssSelector("#signInSubmit")).click();
+		} else {
+
+			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+			driver.findElement(By.cssSelector("#continue")).click();
+			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
+			driver.findElement(By.name("rememberMe")).click();
+			driver.findElement(By.cssSelector("#signInSubmit")).click();
+		}
 		// Pesquisar pelo livro: chasing Excellence
 		driver.findElement(By.cssSelector("#twotabsearchtextbox")).sendKeys("chasing Excellence + book");
 		driver.findElement(By.cssSelector("#nav-search > form > div.nav-right > div > input")).click();
 
 		// (Escrever comentário)
-		driver.findElement(By.linkText("Chasing Excellence: A Story About Building the World's Fittest Athletes")).click();
+		driver.findElement(By.linkText("Chasing Excellence: A Story About Building the World's Fittest Athletes"))
+				.click();
 		driver.findElement(By.linkText("Write a customer review")).click();
 
 		WebElement element = driver.findElement(By.xpath("//*[@id=\"react-app\"]/div/div/div/div"));
@@ -332,21 +417,35 @@ public class TestDesafio {
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
 
 		// Fazer login com o user e criado e com password correta => deve ter sucesso
-		driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
-		driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
-		driver.findElement(By.name("rememberMe")).click();
-		driver.findElement(By.cssSelector("#signInSubmit")).click();
+		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
+		String slogin = login.getText();
+
+		if (slogin.contains("Password")) {
+
+			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
+			driver.findElement(By.name("rememberMe")).click();
+			driver.findElement(By.cssSelector("#signInSubmit")).click();
+		} else {
+
+			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+			driver.findElement(By.cssSelector("#continue")).click();
+			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
+			driver.findElement(By.name("rememberMe")).click();
+			driver.findElement(By.cssSelector("#signInSubmit")).click();
+		}
 
 		// Pesquisar pelo livro: chasing Excellence
 		driver.findElement(By.cssSelector("#twotabsearchtextbox")).sendKeys("chasing Excellence + book");
 		driver.findElement(By.cssSelector("#nav-search > form > div.nav-right > div > input")).click();
-		
+
 		// (Ir para os comentários)
-		driver.findElement(By.linkText("Chasing Excellence: A Story About Building the World's Fittest Athletes")).click();
-		
+		driver.findElement(By.linkText("Chasing Excellence: A Story About Building the World's Fittest Athletes"))
+				.click();
+
 		// Pesquisar Comentários com uma estreala
 		driver.findElement(By.cssSelector("#histogramTable > tbody > tr:nth-child(5) > td:nth-child(1)")).click();
-		
+
 		WebElement element = driver.findElement(By.xpath("//*[@id=\"filter-info-section\"]"));
 		String onestar = element.getText();
 
@@ -368,10 +467,23 @@ public class TestDesafio {
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
 
 		// Fazer login com o user e criado e com password correta => deve ter sucesso
-		driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
-		driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
-		driver.findElement(By.name("rememberMe")).click();
-		driver.findElement(By.cssSelector("#signInSubmit")).click();
+		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
+		String slogin = login.getText();
+
+		if (slogin.contains("Password")) {
+
+			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
+			driver.findElement(By.name("rememberMe")).click();
+			driver.findElement(By.cssSelector("#signInSubmit")).click();
+		} else {
+
+			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+			driver.findElement(By.cssSelector("#continue")).click();
+			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
+			driver.findElement(By.name("rememberMe")).click();
+			driver.findElement(By.cssSelector("#signInSubmit")).click();
+		}
 
 		// Pesquisar pelo livro: chasing Excellence
 		driver.findElement(By.cssSelector("#twotabsearchtextbox")).sendKeys("chasing Excellence + book");
@@ -463,7 +575,6 @@ public class TestDesafio {
 		}
 		else
 		{
-		System.out.println("TESTE OK");
 		driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
 		driver.findElement(By.cssSelector("#continue")).click();
 		driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
@@ -503,25 +614,39 @@ public class TestDesafio {
 		// Aceder ao login
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
 
-		// Fazer login com o user e criado e com password correta => deve ter sucessos
-		driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
-		driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
-		driver.findElement(By.name("rememberMe")).click();
-		driver.findElement(By.cssSelector("#signInSubmit")).click();
+		// Fazer login com o user e criado e com password correta => deve ter sucesso
+		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
+		String slogin = login.getText();
+
+		if (slogin.contains("Password")) {
+
+			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
+			driver.findElement(By.name("rememberMe")).click();
+			driver.findElement(By.cssSelector("#signInSubmit")).click();
+		} else {
+
+			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+			driver.findElement(By.cssSelector("#continue")).click();
+			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
+			driver.findElement(By.name("rememberMe")).click();
+			driver.findElement(By.cssSelector("#signInSubmit")).click();
+		}
 
 		// Pesquisar pelo Filme: avengers
 		driver.findElement(By.cssSelector("#twotabsearchtextbox")).sendKeys("avengers");
 		driver.findElement(By.cssSelector("#nav-search > form > div.nav-right")).click();
 		driver.findElement(By.linkText("Avengers Assemble")).click();
 
-		WebElement element = driver.findElement(By.xpath("//*[@id=\"a-page\"]/div[3]/div[2]/div/div/div[2]/div[3]/div/div[2]"));
+		WebElement element = driver
+				.findElement(By.xpath("//*[@id=\"a-page\"]/div[3]/div[2]/div/div/div[2]/div[3]/div/div[2]"));
 		String shield = element.getText();
 
 		assertNotNull(shield);
 		assertTrue(shield.contains("S.H.I.E.L.D"));
 
 		System.out.println("S.H.I.E.L.D aparece na descrição");
-		
+
 		driver.quit();
 	}
 
@@ -541,16 +666,31 @@ public class TestDesafio {
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
 
 		// Fazer login com o user e criado e com password correta => deve ter sucesso
-		driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
-		driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
-		driver.findElement(By.name("rememberMe")).click();
-		driver.findElement(By.cssSelector("#signInSubmit")).click();
+		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
+		String slogin = login.getText();
+
+		if (slogin.contains("Password")) {
+
+			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
+			driver.findElement(By.name("rememberMe")).click();
+			driver.findElement(By.cssSelector("#signInSubmit")).click();
+		} else {
+
+			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+			driver.findElement(By.cssSelector("#continue")).click();
+			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
+			driver.findElement(By.name("rememberMe")).click();
+			driver.findElement(By.cssSelector("#signInSubmit")).click();
+		}
 
 		// Pesquisar pelo Filme: avengers
 		driver.findElement(By.cssSelector("#twotabsearchtextbox")).sendKeys("avengers");
 		driver.findElement(By.cssSelector("#nav-search > form > div.nav-right")).click();
 		driver.findElement(By.linkText("Avengers Assemble")).click();
-		driver.findElement(By.cssSelector("#dv-action-box > div > div > div > div._1y_Ulh.Ri9l84._2WW1HP > div > span > a")).click();
+		driver.findElement(
+				By.cssSelector("#dv-action-box > div > div > div > div._1y_Ulh.Ri9l84._2WW1HP > div > span > a"))
+				.click();
 		// driver.findElement(By.xpath("//*[@id=\"dv-action-box\"]/div/div/div/div[2]/div/span/a")).click();
 		driver.findElement(By.linkText("Watch")).click();
 
@@ -574,9 +714,23 @@ public class TestDesafio {
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
 
 		// Fazer login com o user e criado e com password correta => deve ter sucesso
-		driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
-		driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
-		driver.findElement(By.cssSelector("#signInSubmit")).click();
+		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
+		String slogin = login.getText();
+
+		if (slogin.contains("Password")) {
+
+			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
+			driver.findElement(By.name("rememberMe")).click();
+			driver.findElement(By.cssSelector("#signInSubmit")).click();
+		} else {
+
+			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+			driver.findElement(By.cssSelector("#continue")).click();
+			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
+			driver.findElement(By.name("rememberMe")).click();
+			driver.findElement(By.cssSelector("#signInSubmit")).click();
+		}
 
 		// No Shop by Department: selecionar Sports & Outdoors -> fitness
 		driver.findElement(By.cssSelector("#searchDropdownBox")).click();
@@ -599,9 +753,24 @@ public class TestDesafio {
 		driver.navigate().to("https://www.amazon.co.uk");
 
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
-		driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
-		driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
-		driver.findElement(By.cssSelector("#signInSubmit")).click();
+		// Fazer login com o user e criado e com password correta => deve ter sucesso
+		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
+		String slogin = login.getText();
+
+		if (slogin.contains("Password")) {
+
+			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
+			driver.findElement(By.name("rememberMe")).click();
+			driver.findElement(By.cssSelector("#signInSubmit")).click();
+		} else {
+
+			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+			driver.findElement(By.cssSelector("#continue")).click();
+			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
+			driver.findElement(By.name("rememberMe")).click();
+			driver.findElement(By.cssSelector("#signInSubmit")).click();
+		}
 
 		// No Shop by Department: selecionar Sports & Outdoors -> fitness
 
