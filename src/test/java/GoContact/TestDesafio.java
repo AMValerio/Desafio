@@ -405,15 +405,30 @@ public class TestDesafio {
 
 		// Aceder ao login
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
-
+		
+		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
+		String slogin = login.getText();
+		
+		if (slogin.contains("Password"))
+		{
+		
 		// Fazer login com o user e criado e com password correta => deve ter sucesso
 		driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
 		driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
 		driver.findElement(By.name("rememberMe")).click();
 		driver.findElement(By.cssSelector("#signInSubmit")).click();
-
+		}
+		else
+		{
+			System.out.println("TESTE OK");
+		driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+		driver.findElement(By.cssSelector("#continue")).click();
+		driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
+		driver.findElement(By.name("rememberMe")).click();
+		driver.findElement(By.cssSelector("#signInSubmit")).click();
+		}
 		// Pesquisar pelo Filme: avengers
-		driver.findElement(By.cssSelector("#twotabsearchtextbox")).sendKeys("avengers");
+		//driver.findElement(By.cssSelector("#twotabsearchtextbox")).sendKeys("avengers");
 
 		driver.quit();
 
@@ -434,10 +449,27 @@ public class TestDesafio {
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
 
 		// Fazer login com o user e criado e com password correta => deve ter sucesso
+		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
+		String slogin = login.getText();
+		
+		if (slogin.contains("Password"))
+		{
+		
+		// Fazer login com o user e criado e com password correta => deve ter sucesso
 		driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
 		driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
 		driver.findElement(By.name("rememberMe")).click();
 		driver.findElement(By.cssSelector("#signInSubmit")).click();
+		}
+		else
+		{
+		System.out.println("TESTE OK");
+		driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+		driver.findElement(By.cssSelector("#continue")).click();
+		driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
+		driver.findElement(By.name("rememberMe")).click();
+		driver.findElement(By.cssSelector("#signInSubmit")).click();
+		}
 
 		// Pesquisar pelo Filme: avengers
 		driver.findElement(By.cssSelector("#twotabsearchtextbox")).sendKeys("avengers");
