@@ -347,8 +347,6 @@ public class TestDesafio {
 		// Pesquisar Comentários com uma estreala
 		driver.findElement(By.cssSelector("#histogramTable > tbody > tr:nth-child(5) > td:nth-child(1)")).click();
 		
-		//driver.findElement(By.cssSelector("#star-count-dropdown_5")).click();
-		System.out.println("Batatas 3");
 		WebElement element = driver.findElement(By.xpath("//*[@id=\"filter-info-section\"]"));
 		String onestar = element.getText();
 
