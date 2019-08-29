@@ -4,8 +4,9 @@ Este projecto tem como objectivo executar uma baterias de testes automatizados e
 # Pré-requistos
 Criar conta valida na amazon.co.uk
 
-# Test Cases
+### Test Cases
 https://www.amazon.co.uk
+
 1 - Validar cenário de Criar conta nova: Criar conta nova com user já existente => validar que o site não permite 
 
 2 - tentar fazer login com o user e criado mas com password errada => deve falhar
@@ -48,3 +49,6 @@ Procurar nas featured Brands se temos "Adidas" -> tirar foto Duvida- tem de apar
 7.3 Pesquisar por "software" -> verificar que o autocomplete sugere software Development
 
 7.4 Clicar na sugestão => software development e pesquisar. Na category filtrar por "Solutions Architect" => verificar se tenho algum para "San Francisco"
+
+
+# Instalação
