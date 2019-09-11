@@ -10,6 +10,7 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -104,12 +105,8 @@ public class TestDesafio {
 			driver.findElement(By.name("rememberMe")).click();
 			driver.findElement(By.cssSelector("#signInSubmit")).click();
 		}
-		// driver.findElement(By.cssSelector("#authportal-main-section >
-		// div:nth-child(2) > div > div > form > div > div > div >
-		// div.a-section.a-spacing-extra-large > div:nth-child(5) > div > label > div >
-		// label > input[type=checkbox]")).click();
-		driver.findElement(By.cssSelector("#signInSubmit")).click();
-		WebElement element = driver.findElement(By.cssSelector("#auth-error-message-box > div > div > ul > li"));
+				
+		WebElement element = driver.findElement(By.cssSelector("#auth-error-message-box > div"));
 		String passnok = element.getText();
 		System.out.println("Error Messaeg-> " + passnok);
 		assertEquals("Your password is incorrect", passnok);
@@ -840,10 +837,13 @@ public class TestDesafio {
 		driver.findElement(By.cssSelector("#location-typeahead")).sendKeys("Portugal, setubal"); 
 		driver.findElement(By.cssSelector("#search-container > div > form > button")).click(); 
 		//driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[3]/div/div/div[2]/content/div/div/div[1]/div/div[6]/div/fieldset/div[2]/button[1]")).click();
-		driver.findElement(By.cssSelector("#main-content > div.search-page > div > div > div.container > content > div > div > div.d-none.d-md-block.col-sm-4.search-page-filter > div > div:nth-child(6) > div > fieldset > div.buttons-group > button.col-xs-2.col-md-4.col-lg-2.btn.btn-in-group.selected")).click();
-
+		//driver.findElement(By.cssSelector("#main-content > div.search-page > div > div > div.container > content > div > div > div.d-none.d-md-block.col-sm-4.search-page-filter > div > div:nth-child(6) > div > fieldset > div.buttons-group > button.col-xs-2.col-md-4.col-lg-2.btn.btn-in-group.selected")).click();
 		
-		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("document.querySelector('#main-content > div.search-page > div > div > div.container > content > div > div > div.d-none.d-md-block.col-sm-4.search-page-filter > div > div:nth-child(6) > div > fieldset > div.buttons-group > button.col-xs-2.col-md-4.col-lg-2.btn.btn-in-group.selected').click()");
+		 
+		 System.out.println("Batatas");
+		 
 		WebElement element8 = driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[3]/div/div/div[2]/content/div")); 
 		String	jobs = element8.getText();
 		
