@@ -164,7 +164,7 @@ public class TestDesafio {
 
 		// Aceder ao login
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
-
+		driver.findElement(By.cssSelector("#nav-flyout-ya-signin > a > span")).click();
 		// Fazer login com o user e criado e com password correta => deve ter sucesso
 		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
 		String slogin = login.getText();
@@ -207,7 +207,8 @@ public class TestDesafio {
 		System.out.println("TC04.1" + " - Confirmar que tenho resultado");
 		// Aceder ao login
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
-
+		driver.findElement(By.cssSelector("#nav-flyout-ya-signin > a > span")).click();
+		
 		// Fazer login com o user e criado e com password correta => deve ter sucesso
 		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
 		String slogin = login.getText();
@@ -250,7 +251,8 @@ public class TestDesafio {
 
 		// Aceder ao login
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
-
+		driver.findElement(By.cssSelector("#nav-flyout-ya-signin > a > span")).click();
+		
 		// Fazer login com o user e criado e com password correta => deve ter sucesso
 		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
 		String slogin = login.getText();
@@ -297,7 +299,8 @@ public class TestDesafio {
 				+ " - Procurar nos comentários: identificar se temos comentário de user: Cerith Leighton Watkins");
 		// Aceder ao login
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
-
+		driver.findElement(By.cssSelector("#nav-flyout-ya-signin > a > span")).click();
+		
 		// Fazer login com o user e criado e com password correta => deve ter sucesso
 		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
 		String slogin = login.getText();
@@ -379,7 +382,8 @@ public class TestDesafio {
 		System.out.println("TC04.4" + " - Inserir comentário: \"gostei de ler\"");
 		// Aceder ao login
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
-
+		driver.findElement(By.cssSelector("#nav-flyout-ya-signin > a > span")).click();
+		
 		// Fazer login com o user e criado e com password correta => deve ter sucesso
 		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
 		String slogin = login.getText();
@@ -426,7 +430,8 @@ public class TestDesafio {
 		System.out.println("TC04.5" + " - Pesquisar por comentários com 1 estrela");
 		// Aceder ao login
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
-
+		driver.findElement(By.cssSelector("#nav-flyout-ya-signin > a > span")).click();
+		
 		// Fazer login com o user e criado e com password correta => deve ter sucesso
 		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
 		String slogin = login.getText();
@@ -476,7 +481,8 @@ public class TestDesafio {
 		System.out.println("TC04.6" + " - Validar se existe algum comentário com a data de 17 September 2017");
 		// Aceder ao login
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
-
+		driver.findElement(By.cssSelector("#nav-flyout-ya-signin > a > span")).click();
+		
 		// Fazer login com o user e criado e com password correta => deve ter sucesso
 		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
 		String slogin = login.getText();
@@ -528,6 +534,7 @@ public class TestDesafio {
 
 		// Aceder ao login
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
+		driver.findElement(By.cssSelector("#nav-flyout-ya-signin > a > span")).click();
 		
 		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
 		String slogin = login.getText();
@@ -569,7 +576,8 @@ public class TestDesafio {
 
 		// Aceder ao login
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
-
+		driver.findElement(By.cssSelector("#nav-flyout-ya-signin > a > span")).click();
+		
 		// Fazer login com o user e criado e com password correta => deve ter sucesso
 		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
 		String slogin = login.getText();
@@ -623,7 +631,8 @@ public class TestDesafio {
 
 		// Aceder ao login
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
-
+		driver.findElement(By.cssSelector("#nav-flyout-ya-signin > a > span")).click();
+		
 		// Fazer login com o user e criado e com password correta => deve ter sucesso
 		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
 		String slogin = login.getText();
@@ -674,7 +683,8 @@ public class TestDesafio {
 
 		// Aceder ao login
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
-
+		driver.findElement(By.cssSelector("#nav-flyout-ya-signin > a > span")).click();
+		
 		// Fazer login com o user e criado e com password correta => deve ter sucesso
 		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
 		String slogin = login.getText();
@@ -722,7 +732,8 @@ public class TestDesafio {
 
 		// Aceder ao login
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
-
+		driver.findElement(By.cssSelector("#nav-flyout-ya-signin > a > span")).click();
+		
 		// Fazer login com o user e criado e com password correta => deve ter sucesso
 		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
 		String slogin = login.getText();
@@ -763,6 +774,8 @@ public class TestDesafio {
 		driver.navigate().to("https://www.amazon.co.uk");
 
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
+		driver.findElement(By.cssSelector("#nav-flyout-ya-signin > a > span")).click();
+		
 		// Fazer login com o user e criado e com password correta => deve ter sucesso
 		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
 		String slogin = login.getText();
