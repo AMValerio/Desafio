@@ -55,8 +55,7 @@ public class TestDesafio {
 		/*
 		 * Dados de teste: email: amevaleriotest@gmail.com pass: Amazon.1
 		 */
-		
-		driver.findElement(By.cssSelector("#createAccountSubmit")).click();
+		driver.findElement(By.cssSelector("#nav-flyout-ya-newCust > a")).click();
 		driver.findElement(By.cssSelector("#ap_customer_name")).sendKeys("Teste01");
 		driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
 		driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.12");
@@ -85,7 +84,7 @@ public class TestDesafio {
 
 		// Aceder ao login
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
-
+		driver.findElement(By.cssSelector("#nav-flyout-ya-signin > a > span")).click();
 		// 2 - tentar fazer login com o user e criado mas com password errada => deve
 		// falhar
 		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
@@ -126,7 +125,7 @@ public class TestDesafio {
 
 		// Aceder ao login
 		driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-1")).click();
-
+		driver.findElement(By.cssSelector("#nav-flyout-ya-signin > a > span")).click();
 		// Fazer login com o user e criado e com password correta => deve ter sucesso
 		WebElement login = driver.findElement(By.cssSelector("#authportal-main-section"));
 		String slogin = login.getText();
