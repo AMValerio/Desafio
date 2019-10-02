@@ -38,7 +38,7 @@ public class TestDesafio {
 		System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver2/chromedriver.exe");
 		//System.setProperty("webdriver.chrome.whitelistedIps", "");
 		driver = new ChromeDriver();
-
+		
 		System.out.println("TC01"
 				+ " Validar cenário de Criar conta nova: Criar conta nova com user já existente => validar que o site não permite");
 
@@ -116,7 +116,7 @@ public class TestDesafio {
 	public void tc3_loginOK() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver2/chromedriver.exe");
 		driver = new ChromeDriver();
-
+				
 		System.out.println("TC03" + "Fazer login com o user e criado e com password correta => deve ter sucesso");
 
 		// Entrar no site https://www.amazon.co.uk
@@ -132,14 +132,14 @@ public class TestDesafio {
 
 		if (slogin.contains("Password")) {
 			// Fazer login com o user e criado e com password correta => deve ter sucesso
-			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
-			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
+			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest1@gmail.com");
+			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.2");
 			driver.findElement(By.name("rememberMe")).click();
 			driver.findElement(By.cssSelector("#signInSubmit")).click();
 		} else {
-			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest@gmail.com");
+			driver.findElement(By.cssSelector("#ap_email")).sendKeys("amevaleriotest1@gmail.com");
 			driver.findElement(By.cssSelector("#continue")).click();
-			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.1");
+			driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon.2");
 			driver.findElement(By.name("rememberMe")).click();
 			driver.findElement(By.cssSelector("#signInSubmit")).click();
 		}
