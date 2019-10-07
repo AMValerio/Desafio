@@ -15,13 +15,14 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TestDesafio {
 	WebDriver driver;
+	
 
 	/*
 	 * @Before 
@@ -114,8 +115,11 @@ public class TestDesafio {
 
 	@Test
 	public void tc3_loginOK() throws InterruptedException {
+			
 		System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver2/chromedriver.exe");
-		driver = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--incognito");
+		driver = new ChromeDriver(options);
 				
 		System.out.println("TC03" + "Fazer login com o user e criado e com password correta => deve ter sucesso");
 
