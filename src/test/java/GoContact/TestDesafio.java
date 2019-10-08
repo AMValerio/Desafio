@@ -116,11 +116,14 @@ public class TestDesafio {
 	@Test
 	public void tc3_loginOK() throws InterruptedException {
 			
+		//System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver2/chromedriver.exe");
+		//ChromeOptions options = new ChromeOptions();
+		//options.addArguments("--incognito");
+		//driver = new ChromeDriver(options);
+			
 		System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver2/chromedriver.exe");
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--incognito");
-		driver = new ChromeDriver(options);
-				
+		driver = new ChromeDriver();
+		
 		System.out.println("TC03" + "Fazer login com o user e criado e com password correta => deve ter sucesso");
 
 		// Entrar no site https://www.amazon.co.uk
