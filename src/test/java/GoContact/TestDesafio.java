@@ -359,7 +359,7 @@ public class TestDesafio {
 				// WebElement elementButton = findElement(By.cssSelector("#cm_cr-pagination_bar
 				// > ul > li.a-disabled.a-last"));
 				// hasMorePages = elementButton.getText().contains("Next");
-				// vamos parar aqui isto
+				// parar aqui
 				hasMorePages = false;
 			}
 
